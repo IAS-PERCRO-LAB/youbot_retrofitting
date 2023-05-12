@@ -1,6 +1,0 @@
-/home/youbot/ros_workspace_giuseppe/sandbox/youbot_driver/youbot/CMakeFiles/YouBotDriver.dir
-/home/youbot/ros_workspace_giuseppe/sandbox/youbot_driver/youbot/CMakeFiles/YouBotDriverShared.dir
-/home/youbot/ros_workspace_giuseppe/sandbox/youbot_driver/youbot/testing/CMakeFiles/base_arm_gripper_test.dir
-/home/youbot/ros_workspace_giuseppe/sandbox/youbot_driver/youbot/display/CMakeFiles/displayIpAddress.dir
-/home/youbot/ros_workspace_giuseppe/sandbox/youbot_driver/youbot/soem/CMakeFiles/soem.dir
-/home/youbot/ros_workspace_giuseppe/sandbox/youbot_driver/youbot/testing/CMakeFiles/test_base.dir

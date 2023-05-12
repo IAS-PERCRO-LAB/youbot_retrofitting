@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../lib/libsoem.a  CMakeFiles/soem.dir/src/ethercatbase.c.o CMakeFiles/soem.dir/src/ethercatcoe.c.o CMakeFiles/soem.dir/src/ethercatconfig.c.o CMakeFiles/soem.dir/src/ethercatfoe.c.o CMakeFiles/soem.dir/src/ethercatsoe.c.o CMakeFiles/soem.dir/src/ethercatmain.c.o CMakeFiles/soem.dir/src/ethercatprint.c.o CMakeFiles/soem.dir/src/nicdrv.c.o CMakeFiles/soem.dir/src/ethercatdc.c.o
-/usr/bin/ranlib ../../lib/libsoem.a
