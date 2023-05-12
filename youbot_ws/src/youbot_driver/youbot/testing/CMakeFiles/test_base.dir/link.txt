@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -Wall    CMakeFiles/test_base.dir/test.c.o  -o ../../bin/test_base -rdynamic -lboost_thread -lboost_date_time -lboost_filesystem -lboost_system -lboost_regex ../../lib/libYouBotDriver.a -lcppunit ../../lib/libsoem.a -lboost_thread -lboost_date_time -lboost_filesystem -lboost_system -lboost_regex 

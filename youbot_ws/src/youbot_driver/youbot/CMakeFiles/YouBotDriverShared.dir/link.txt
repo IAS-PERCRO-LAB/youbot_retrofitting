@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -fPIC -Wall   -shared -Wl,-soname,libYouBotDriver.so -o ../lib/libYouBotDriver.so  -lboost_thread -lboost_date_time -lboost_filesystem -lboost_system -lboost_regex -Wl,-whole-archive ../lib/libYouBotDriver.a ../lib/libsoem.a -Wl,-no-whole-archive -lboost_thread -lboost_date_time -lboost_filesystem -lboost_system -lboost_regex 
