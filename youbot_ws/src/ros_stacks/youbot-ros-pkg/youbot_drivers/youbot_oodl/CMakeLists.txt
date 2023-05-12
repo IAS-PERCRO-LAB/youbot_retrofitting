@@ -10,7 +10,7 @@ message("catkin_INCLUDE_DIRS: ${catkin_INCLUDE_DIRS}")
 
 catkin_package()
 
-ADD_DEFINITIONS(-DYOUBOT_CONFIGURATIONS_DIR=/home/robotics/mechatronics_ws/src/youbot_driver/config)
+ADD_DEFINITIONS(-DYOUBOT_CONFIGURATIONS_DIR=${youbot_driver_SOURCE_PREFIX}/config)
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
