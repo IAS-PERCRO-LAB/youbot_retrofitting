@@ -1,2 +1,0 @@
-setcap:
-  ubuntu: libcap2-bin

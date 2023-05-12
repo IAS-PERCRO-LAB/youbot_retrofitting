@@ -46,7 +46,7 @@
 #include "pluginlib/class_list_macros.h"
 #include "angles/angles.h"
 
-PLUGINLIB_DECLARE_CLASS(youbot_description, JointPositionController, youbotcontroller::JointPositionController, pr2_controller_interface::Controller)
+PLUGINLIB_EXPORT_CLASS(youbotcontroller::JointPositionController, pr2_controller_interface::Controller)
 
 namespace youbotcontroller
 {

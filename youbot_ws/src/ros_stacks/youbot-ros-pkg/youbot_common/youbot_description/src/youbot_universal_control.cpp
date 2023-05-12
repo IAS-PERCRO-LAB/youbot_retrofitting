@@ -49,7 +49,7 @@
 #include <youbot_trajectory_action_server/joint_trajectory_action.h>
 
 
-PLUGINLIB_DECLARE_CLASS(youbot_description, YouBotUniversalController, controller::YouBotUniversalController, pr2_controller_interface::Controller)
+PLUGINLIB_EXPORT_CLASS(controller::YouBotUniversalController, pr2_controller_interface::Controller)
 
 namespace controller {
 

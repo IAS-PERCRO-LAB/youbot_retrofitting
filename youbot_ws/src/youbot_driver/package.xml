@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>youbot_driver</name>
+  <version>0.0.0</version>
+  <description>Drivers for the KUKA youBot robot</description>
+  <author email="alberto.remus@santannapisa.it">aaa</author>
+  <maintainer email="alberto.remus@santannapisa.it">aaa</maintainer>
+  <license>gnu-lgpl-v2.1 modified-bsd</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <build_depend>boost-all</build_depend>
+  <exec_depend>boost-all</exec_depend>
+
+</package>
+

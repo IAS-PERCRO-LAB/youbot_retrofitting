@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>youbot_description</name>
+
+  <version>0.0.0</version>
+  <description>youbot_description</description>
+  <author email="alberto.remus@santannapisa.it">aaa</author>
+  <maintainer email="alberto.remus@santannapisa.it">aaa</maintainer>
+
+  <license>GNU GPL</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>robot_state_publisher</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>brics_actuator</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>pr2_controller_interface</build_depend>
+  <build_depend>pr2_controllers_msgs</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>control_msgs</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>youbot_trajectory_action_server</build_depend>
+  <build_depend>pr2_gazebo_plugins</build_depend>
+
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>tf</build_export_depend>
+  <build_export_depend>robot_state_publisher</build_export_depend>
+  <build_export_depend>urdf</build_export_depend>
+  <build_export_depend>trajectory_msgs</build_export_depend>
+  <build_export_depend>std_srvs</build_export_depend>
+  <build_export_depend>brics_actuator</build_export_depend>
+  <build_export_depend>nav_msgs</build_export_depend>
+  <build_export_depend>pr2_controller_interface</build_export_depend>
+  <build_export_depend>pr2_controllers_msgs</build_export_depend>
+  <build_export_depend>realtime_tools</build_export_depend>
+  <build_export_depend>orocos_kdl</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>control_msgs</build_export_depend>
+  <build_export_depend>actionlib</build_export_depend>
+  <build_export_depend>youbot_trajectory_action_server</build_export_depend>
+  <build_export_depend>pr2_gazebo_plugins</build_export_depend>
+
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>brics_actuator</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>pr2_controller_interface</exec_depend>
+  <exec_depend>pr2_controllers_msgs</exec_depend>
+  <exec_depend>realtime_tools</exec_depend>
+  <exec_depend>orocos_kdl</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>youbot_trajectory_action_server</exec_depend>
+  <exec_depend>pr2_gazebo_plugins</exec_depend>
+
+  <export>
+    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />
+    <cpp cflags="-I${prefix}/include" />
+  </export>
+
+</package>
+
+

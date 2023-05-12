@@ -26,25 +26,25 @@ CTRL-C to quit
 """
 
 moveBindings = {
-#		     x,y,tetha ratio
-		'i':(1,0,0), 	# forwards
-		'o':(1,0,-1), 	# forwards + rotation right
-		'j':(0,1,0), 	# left
-		'l':(0,-1,0),	# right
-		'u':(1,0,1), 	# forwards + rotation left
-		',':(-1,0,0), 	# backward
-		'.':(0,0,-1), 	# turn right on spot
-		'm':(0,0,1), 	# turn left on spot
-	       }
+#             x,y,tetha ratio
+        'i':(1,0,0),     # forwards
+        'o':(1,0,-1),     # forwards + rotation right
+        'j':(0,1,0),     # left
+        'l':(0,-1,0),    # right
+        'u':(1,0,1),     # forwards + rotation left
+        ',':(-1,0,0),     # backward
+        '.':(0,0,-1),     # turn right on spot
+        'm':(0,0,1),     # turn left on spot
+           }
 
 speedBindings={
-		'q':(1.1,1.1),
-		'z':(.9,.9),
-		'w':(1.1,1),
-		'x':(.9,1),
-		'e':(1,1.1),
-		'c':(1,.9),
-	      }
+        'q':(1.1,1.1),
+        'z':(.9,.9),
+        'w':(1.1,1),
+        'x':(.9,1),
+        'e':(1,1.1),
+        'c':(1,.9),
+          }
 
 class TimeoutException(Exception): 
     pass 
@@ -77,59 +77,59 @@ def vels(speed,turn):
 	return "currently:\tspeed %s\tturn %s " % (speed,turn)
 
 if __name__=="__main__":
-    	settings = termios.tcgetattr(sys.stdin)
-	
-	pub = rospy.Publisher('cmd_vel', Twist)
-	rospy.init_node('teleop_twist_keyboard')
 
-	x = 0
-	y = 0
-	th = 0
-	status = 0
+    settings = termios.tcgetattr(sys.stdin)
+    pub = rospy.Publisher('cmd_vel', Twist)
+    rospy.init_node('teleop_twist_keyboard')
 
-	try:
-		print msg
-		print vels(speed,turn)
-		while(1):
-			key = getKey()
-			if key in moveBindings.keys():
-				x = moveBindings[key][0]
-				y = moveBindings[key][1]
-				th = moveBindings[key][2]
-			elif key in speedBindings.keys():
-				speed = speed * speedBindings[key][0]
-				turn = turn * speedBindings[key][1]
+    x = 0
+    y = 0
+    th = 0
+    status = 0
 
-				print vels(speed,turn)
-				if (status == 14):
-					print msg
-				status = (status + 1) % 15
-			else:
-				x = 0
-				y = 0
-				th = 0
-				if (key == '\x03'):
-					break
+    try:
+        print(msg)
+        print(vels(speed,turn))
+        while(1):
+            key = getKey()
+            if key in moveBindings.keys():
+                x = moveBindings[key][0]
+                y = moveBindings[key][1]
+                th = moveBindings[key][2]
+            elif key in speedBindings.keys():
+                speed = speed * speedBindings[key][0]
+                turn = turn * speedBindings[key][1]
 
-			twist = Twist()
-			twist.linear.x = x*speed 
-			twist.linear.y = y*speed 
-			twist.linear.z = 0
+                print(vels(speed,turn))
+                if (status == 14):
+                    print(msg)
+                status = (status + 1) % 15
+            else:
+                x = 0
+                y = 0
+                th = 0
+                if (key == '\x03'):
+                    break
 
-			twist.angular.x = 0 
-			twist.angular.y = 0
-			twist.angular.z = th*turn
-			pub.publish(twist)
+            twist = Twist()
+            twist.linear.x = x*speed
+            twist.linear.y = y*speed
+            twist.linear.z = 0
 
-	except:
-		print e
+            twist.angular.x = 0
+            twist.angular.y = 0
+            twist.angular.z = th*turn
+            pub.publish(twist)
 
-	finally:
-		twist = Twist()
-		twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
-		twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
-		pub.publish(twist)
+    except Exception as e:
+        print(e)
 
-    		termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    finally:
+        twist = Twist()
+        twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
+        twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
+        pub.publish(twist)
+
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
 
 

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>youbot_trajectory_action_server</name>
+  <version>0.0.0</version>
+  <description>youbot_trajectory_action_server</description>
+  <author email="alberto.remus@santannapisa.it">aaa</author>
+  <maintainer email="alberto.remus@santannapisa.it">aaa</maintainer>
+
+  <license>GNU GPL</license>1
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>brics_actuator</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>control_msgs</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>brics_actuator</build_export_depend>
+  <build_export_depend>actionlib</build_export_depend>
+  <build_export_depend>control_msgs</build_export_depend>
+  <build_export_depend>orocos_kdl</build_export_depend>
+
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>brics_actuator</exec_depend>
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>orocos_kdl</exec_depend>
+
+  <build_depend>boost-all</build_depend>
+  <exec_depend>boost-all</exec_depend>
+  <build_depend>cmake_modules</build_depend>
+  <exec_depend>cmake_modules</exec_depend>
+ <export>
+    <cpp cflags="`pkg-config --cflags eigen3` -I${prefix}/include `rosboost-cfg --cflags`" 
+         lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lplanning_models"/>
+  </export>
+
+</package>
+
+
+

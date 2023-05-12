@@ -5,9 +5,9 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-	<property name="sensor_angle_width"  value="0.097" />
-	<property name="sensor_angle_height" value="0.0015" />
-	<property name="sensor_angle_depth"  value="0.0625" />
+	<xacro:property name="sensor_angle_width"  value="0.097" />
+	<xacro:property name="sensor_angle_height" value="0.0015" />
+	<xacro:property name="sensor_angle_depth"  value="0.0625" />
   
 	<xacro:macro name="sensor_angle" params="name parent *origin">
 		<link name="${name}_part1_link">
