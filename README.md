@@ -1,17 +1,17 @@
 # Install dependencies on ROS Noetic Ubuntu 20.04
 ```
-sudo apt install ros-noetic-pr2-msgs
-sudo apt install libcppunit-dev
-sudo apt install libeigen3-dev 
-sudo apt install ros-noetic-pr2-controller-manager
-sudo apt install ros-noetic-xacro
-sudo apt install libcap2-bin
+sudo apt update
+sudo apt install -y libcppunit-dev libeigen3-dev libcap2-bin ros-noetic-pr2-msgs ros-noetic-pr2-controller-manager ros-noetic-xacro
+
+cd youbot-retrofitting/youbot_ws
+catkin clean -y
 catkin build
+source devel/setup.bash
 ```
 
 Avoid Error while loading shared libraries
 ```
-sudo ldconfig /opt/ros/hydro/lib
+sudo ldconfig /opt/ros/noetic/lib
 ```
 
 # Enable sudo permissions
