@@ -1,5 +1,12 @@
-cmake_minimum_required(VERSION 2.4.6)
-PROJECT(youbot_description)
+cmake_minimum_required(VERSION 3.0.2)
+project(youbot_description)
+
+## Compile as C++11, supported in ROS Kinetic and newer
+# add_compile_options(-std=c++11)
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
 
 SET(Boost_ADDITIONAL_VERSIONS "1.39" "1.39.0" "1.40" "1.40.0" "1.41" "1.41.0" "1.42" "1.42.0" "1.43" "1.43.0" "1.44" "1.44.0" "1.45" "1.45.0" "1.46" "1.46.0")
 find_package(Boost REQUIRED COMPONENTS thread date_time filesystem system)
@@ -7,8 +14,14 @@ find_package(catkin REQUIRED youbot_trajectory_action_server brics_actuator pr2_
 
 catkin_package()
 
-include_directories(include ${catkin_INCLUDE_DIRS})
-include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src)
+## Specify additional locations of header files
+## Your package locations should be listed before other locations
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${PROJECT_SOURCE_DIR}/include
+  ${PROJECT_SOURCE_DIR}/src
+)
 
 #youbot base teleoperation experiment 
 add_executable(youbot_keyboard_teleop_experiment examples/keyboard_teleop_experiment.cpp)
@@ -35,6 +48,7 @@ target_link_libraries(arm_joint_torque_control_test  ${catkin_LIBRARIES})
 add_executable(static_joint_publisher src/static_joint_publisher.cpp)
 target_link_libraries(static_joint_publisher  ${catkin_LIBRARIES})
 
-#depricated
+#deprecated
+
 add_executable(base_command_republisher src/base_command_republisher.cpp)
 target_link_libraries(base_command_republisher  ${catkin_LIBRARIES})

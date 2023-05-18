@@ -9,8 +9,8 @@
 
 	<!-- start gazebo empty world-->
 	<param name="/use_sim_time" value="true" />
-	<node name="gazebo" pkg="gazebo" type="gazebo" args="$(find gazebo_worlds)/worlds/empty.world" respawn="false" output="screen">
-		<env name="GAZEBO_RESOURCE_PATH" value="$(find youbot_description):$(find gazebo_worlds):$(find gazebo)/gazebo/share/gazebo" />  
+	<node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(find gazebo_ros)/launch/empty_world.launch" respawn="false" output="screen">
+		<env name="GAZEBO_RESOURCE_PATH" value="$(find youbot_description):$(find gazebo_ros)" />
 		<remap from="base_controller/command" to="cmd_vel"/>
 		<remap from="scan_front" to="base_scan"/>
         <remap from="/base_odometry/odom" to="/odom" />
@@ -18,15 +18,15 @@
 	</node>
 	
 	<!-- start gui -->
-	<node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/>
+	<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
 
-	
 	<!-- send youbot urdf to param server -->
-	<param name="robot_description" command="$(find xacro)/xacro.py '$(find youbot_description)/robots/youbot.urdf.xacro'"/>
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find youbot_description)/robots/youbot.urdf.xacro"/>
 
 	<!-- push robot_description to factory and spawn robot in gazebo -->
-	<node name="youbot_gazebo_model" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -model youBot -x 0.0 -y 0.0 -z 0.1" respawn="false" output="screen" />
-	
+	<node name="youbot_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model youBot -x 0.0 -y 0.0 -z 0.1"  output="screen" />
+
+
 	<include file="$(find youbot_description)/launch/control/youbot_base_control.launch" />
 	<include file="$(find youbot_description)/launch/control/youbot_arm_control.launch" />
 	<include file="$(find youbot_description)/launch/control/youbot_gripper_control.launch" />

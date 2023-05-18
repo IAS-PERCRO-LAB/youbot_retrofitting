@@ -20,7 +20,7 @@
 
 	
 	<!-- send youbot urdf to param server -->
-	<param name="robot_description" command="$(find xacro)/xacro.py '$(find youbot_description)/robots/youbot-sensors.urdf.xacro'"/>
+	<param name="robot_description" command="$(find xacro)/xacro '$(find youbot_description)/robots/youbot-sensors.urdf.xacro'"/>
 	<!-- NOTE: To choose between a set of sensors see /robots/youbot-sensors.urdf.xacro for further details
 	           and commint in/out the relevant sensor secntions. -->
 
