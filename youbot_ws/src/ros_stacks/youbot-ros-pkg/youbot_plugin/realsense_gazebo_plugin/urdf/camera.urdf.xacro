@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/static_link.urdf.xacro" />
+
+    <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
+
+    <xacro:macro name = "youbot_camera" params="parent name *origin">
+        <joint name="camera_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <parent link="static_link"/>
+            <child link="camera_link"/>
+        </joint>
+
+        <!-- Camera -->
+        <link name="camera_link">
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${camera_link} ${camera_link} ${camera_link}"/>
+                </geometry>
+            </collision>
+
+            <visual>
+            <origin xyz="0 0 0.25" rpy="0 0 0"/>
+                <geometry>
+                  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+                </geometry>
+                <material name="Red"/>
+            </visual>
+
+            <inertial>
+                <mass value="1e-5" />
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+            </inertial>
+        </link>
+
+        <xacro:youbot_base_gazebo />
+        <xacro:youbot_base_transmission />
+
+    </xacro:macro>
+</robot>
