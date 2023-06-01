@@ -16,11 +16,13 @@
   <xacro:include filename="$(find youbot_description)/urdf/youbot_plate/plate.urdf.xacro" />
 
   <!-- youbot arm -->
-  <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro"/> Xacro file for the arm--> 
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/static_link.urdf.xacro"/>
 
   <!-- youbot gripper -->
-  <xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.urdf.xacro" />
- 
+  <!-- <xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.urdf.xacro" /> -->
+   <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
+
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
   <xacro:include filename="$(find youbot_description)/gazebo/gazebo.urdf.xacro" />
   
@@ -43,12 +45,18 @@
   <xacro:youbot_plate name="plate" parent="base_link">
     <origin xyz="-0.159 0 0.046" rpy="0 0 0" />
   </xacro:youbot_plate>
-  <xacro:youbot_arm name="arm" parent="base_link">
+  <xacro:youbot_static_link name="static_link" parent="base_link">
+    <origin xyz="0.143 0 0.046" rpy="0 0 0" />
+  </xacro:youbot_static_link>
+  <xacro:sensor_d435 name="camera" parent="static_link">
+    <origin xyz="0 0 0.25" rpy="0 0 0" />
+  </xacro:sensor_d435>
+  <!-- <xacro:youbot_arm name="arm" parent="base_link">
     <origin xyz="0.143 0 0.046" rpy="0 0 0" />
   </xacro:youbot_arm>
   <xacro:youbot_gripper name="gripper" parent="arm_link_5">
     <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:youbot_gripper>
+  </xacro:youbot_gripper> -->
 
   
 </robot>
