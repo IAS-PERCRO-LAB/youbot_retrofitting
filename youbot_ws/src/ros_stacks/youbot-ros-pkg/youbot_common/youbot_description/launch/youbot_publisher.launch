@@ -27,10 +27,10 @@
 
 	<!-- push robot_description to factory and spawn robot in gazebo -->
 	<node name="youbot_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model youBot -x 0.0 -y 0.0 -z 0.1"  output="screen" />
-
-	<!-- start rviz 
+	
+	<!-- start rviz -->
 	<arg name="gui" default="True" />
     <param name="use_gui" value="$(arg gui)" />
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" /> -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" /> 
 
 </launch>

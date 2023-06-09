@@ -62,6 +62,7 @@
   <exec_depend>actionlib</exec_depend>
   <exec_depend>youbot_trajectory_action_server</exec_depend>
   <exec_depend>pr2_gazebo_plugins</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
 
   <export>
     <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />

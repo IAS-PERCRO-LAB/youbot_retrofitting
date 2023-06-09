@@ -5,7 +5,7 @@
     <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.gazebo.xacro" />
 
     <xacro:property name="static_link_radius" value="0.01" />
-    <xacro:property name="static_link_length" value="0.25" />
+    <xacro:property name="static_link_length" value="0.125" />
 
     <xacro:macro name = "youbot_static_link" params="parent name *origin">
 
@@ -24,7 +24,7 @@
 			</inertial>
 
             <visual>
-				<origin xyz="0 0 0.125" rpy="0 0 0" />
+				<origin xyz="0 0 0.0625" rpy="0 0 0" />
 				<geometry>
 					<cylinder radius="${static_link_radius}" length="${static_link_length}"/>
 				</geometry>
